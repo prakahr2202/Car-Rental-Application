@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Themed Navbar with Silver Sparkling Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            /* Dark background */
+            color: #ffffff;
+            /* Light text */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1e1e1e;
+            /* Dark navbar background */
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Silver Sparkling Logo */
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #d4d4d4, #b8b8b8, #d4d4d4);
+            /* Silver gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Sparkling effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -10%;
+            }
+
+            50% {
+                background-position: 10%;
+            }
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.1);
+            /* Slight zoom on hover */
+        }
+
+        /* Sparkling particles effect */
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 130%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+            filter: blur(10px);
+            animation: sparkle 3s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .navbar-center {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .search-input {
+            width: 300px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 20px;
+            background-color: #2c2c2c;
+            color: #fff;
+            outline: none;
+            transition: width 0.4s ease;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .search-input:focus {
+            width: 400px;
+            /* Expands on focus */
+            background-color: #444;
+        }
+
+        .search-btn {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            position: absolute;
+            right: 10px;
+        }
+
+        .search-btn:hover {
+            color: #aaa;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .search-input {
+                width: 200px;
+            }
+
+            .search-input:focus {
+                width: 250px;
+            }
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #333, #222);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #f5f5f5;
+        }
+
+        .car-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .car-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            text-align: center;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .car-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .car-info p {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .details-btn {
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            background-color: #ff6a00;
+
+        }
+
+        .details-btn:hover {
+            background-color: #555;
+        }
+
+
+
+        .rent-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6a00;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .rent-btn:hover {
+            background-color: #555;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .car-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .car-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- Logo on the left -->
+        <div class="navbar-left">
+            <a href="/" class="logo-link">
+                <div class="logo">Karter</div>
+            </a>
+        </div>
+
+        <!-- Search bar in the center -->
+        <div class="navbar-center">
+            <form action="#" method="get" class="search-form">
+                <input type="text" name="query" placeholder="Search..." class="search-input" required>
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+        </div>
+
+        <!-- Back button on the right corner -->
+        <div class="navbar-right">
+
+            <a th:href="@{/cars}" class="details-btn">Details</a>
+            <button class="back-btn" onclick="history.back()">&#8592; Back</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Our Car Collection</h1>
+
+        <div class="car-grid">
+            <!-- Car 1 -->
+            <div class="car-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Luxury+Sedan" alt="Luxury Sedan">
+                <div class="car-info">
+                    <h2>Luxury Sedan</h2>
+                    <p>Experience comfort and style in this premium luxury sedan. Perfect for business or leisure
+                        travel.</p>
+                    <a th:href="@{/send-email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+
+                </div>
+            </div>
+
+            <!-- Car 2 -->
+            <div class="car-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Sport+Coupe" alt="Sport Coupe">
+                <div class="car-info">
+                    <h2>Sport Coupe</h2>
+                    <p>Enjoy thrilling performance and sleek design with our Sport Coupe. Ideal for weekend getaways.
+                    </p>
+                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+
+                </div>
+            </div>
+
+            <!-- Car 3 -->
+            <div class="car-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Electric+SUV" alt="Electric SUV">
+                <div class="car-info">
+                    <h2>Electric SUV</h2>
+                    <p>Go green with our eco-friendly Electric SUV, offering both luxury and cutting-edge technology.
+                    </p>
+                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+
+                </div>
+            </div>
+
+            <!-- Car 4 -->
+            <div class="car-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Convertible" alt="Convertible">
+                <div class="car-info">
+                    <h2>Convertible</h2>
+                    <p>Feel the wind in your hair with our Convertible, perfect for sunny days and scenic drives.</p>
+                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+
+                </div>
+            </div>
+
+            <div class="car-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Normal sedan" alt="Normal Sedan">
+                <div class="car-info">
+                    <h2>Normal sedan</h2>
+                    <p>Feel the wind in your hair with our Normal sedan, perfect for short distance and Four wheeler.
+                    </p>
+                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

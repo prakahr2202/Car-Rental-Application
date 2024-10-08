@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Request Callback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            /* Dark background */
+            color: #ffffff;
+            /* Light text */
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            /* Darker card background */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s;
+            /* Fade-in animation */
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s;
+            /* Fade-in animation */
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            /* Green button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            color: #e0e0e0;
+            /* Light text color */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+        .spinner {
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border: 6px solid #4CAF50;
+            /* Spinner color */
+            border-top: 6px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            /* Spinner animation */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Thank You!</h1>
+        <p>We will call you back soon!</p>
+        <p>Your request for a callback has been received, and our team is on it. Please ensure that your phone is
+            available to receive the call.</p>
+        <div class="spinner"></div> <!-- Spinner for loading effect -->
+        <button class="button" onclick="window.location.href='/cars'">Go to back</button>
+        <a href="/index" class="back-home">Back to Home</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Successful - Dark Mode</title>
+    <link rel="stylesheet" th:href="@{/css/dark-style.css}" />
+    <style>
+        /* Inline CSS for Dark Mode */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+            /* Dark background */
+            color: #e0e0e0;
+            /* Light text color */
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            /* Darker background for container */
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            /* Dark shadow */
+            border-radius: 8px;
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            /* Green for success */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #e0e0e0;
+            /* Light text */
+            margin-bottom: 20px;
+        }
+
+        .car-image {
+            width: 100px;
+            margin-bottom: 20px;
+            filter: brightness(0.8);
+            /* Darken image to fit dark mode */
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            /* Green button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            color: #e0e0e0;
+            /* Light text color */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/2643/2643375.png" class="car-image" alt="Car Image">
+        <h1>Car Rental Successful!</h1>
+        <p>Your car rental has been processed successfully. You will receive an email confirmation shortly.</p>
+        <button class="button" onclick="history.back()">&#8592;Go to back</button>
+        <a href="/index" class="back-home">Back to Home</a>
+    </div>
+</body>
+
+</html>
