@@ -269,9 +269,55 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            margin-right: 16px;
+            text-decoration: none;
             transition: background-color 0.3s ease;
             background-color: #ff6a00;
 
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-container {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            display: flex;
+            /* Use flexbox for horizontal alignment */
+            justify-content: space-between;
+            /* Space out the sections evenly */
+            flex-wrap: wrap;
+            /* Allow wrapping to avoid overflow on smaller screens */
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* Remove margin to align properly */
+        }
+
+        footer li {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         .details-btn:hover {
@@ -329,7 +375,7 @@
         <!-- Back button on the right corner -->
         <div class="navbar-right">
 
-            <a th:href="@{/cars}" class="details-btn">Details</a>
+            <a th:href="@{/cars}" class="details-btn">More Cars</a>
             <button class="back-btn" onclick="history.back()">&#8592; Back</button>
         </div>
     </nav>
@@ -357,7 +403,7 @@
                     <h2>Sport Coupe</h2>
                     <p>Enjoy thrilling performance and sleek design with our Sport Coupe. Ideal for weekend getaways.
                     </p>
-                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+                    <a th:href="@{/send-email}" class="rent-btn" title="We will select car for you">Rent Now</a>
 
                 </div>
             </div>
@@ -369,7 +415,7 @@
                     <h2>Electric SUV</h2>
                     <p>Go green with our eco-friendly Electric SUV, offering both luxury and cutting-edge technology.
                     </p>
-                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+                    <a th:href="@{/send-email}" class="rent-btn" title="We will select car for you">Rent Now</a>
 
                 </div>
             </div>
@@ -380,7 +426,7 @@
                 <div class="car-info">
                     <h2>Convertible</h2>
                     <p>Feel the wind in your hair with our Convertible, perfect for sunny days and scenic drives.</p>
-                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+                    <a th:href="@{/send-email}" class="rent-btn" title="We will select car for you">Rent Now</a>
 
                 </div>
             </div>
@@ -391,13 +437,43 @@
                     <h2>Normal sedan</h2>
                     <p>Feel the wind in your hair with our Normal sedan, perfect for short distance and Four wheeler.
                     </p>
-                    <a th:href="@{/email}" class="rent-btn" title="We will select car for you">Rent Now</a>
+                    <a th:href="@{/send-email}" class="rent-btn" title="We will select car for you">Rent Now</a>
 
                 </div>
             </div>
 
         </div>
     </div>
+    <footer>
+        <div class="footer-container">
+            <h3>COMPANY</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Media Coverage</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Refunds</a></li>
+            </ul>
+
+            <h3>SERVICES</h3>
+            <ul>
+                <li><a href="#">Local Car Rentals</a></li>
+                <li><a href="#">Outstation Taxi</a></li>
+                <li><a href="#">One way cabs</a></li>
+                <li><a href="#">Corporate Car Rental</a></li>
+                <li><a href="#">Airport Taxi</a></li>
+            </ul>
+
+            <h3>GET IN TOUCH</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sitemap</a></li>
+                <li><a href="#">XML Sitemap</a></li>
+            </ul>
+        </div>
+    </footer>
+
 
 </body>
 

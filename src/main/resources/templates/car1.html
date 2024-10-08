@@ -13,9 +13,11 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
+            background: linear-gradient(120deg, #333, #222);
+
+
             /* Dark background */
-            color: #ffffff;
+            color: #ffffff !important;
             /* Light text */
         }
 
@@ -148,6 +150,8 @@
             transition: width 0.4s ease;
         }
 
+
+
         .search-input::placeholder {
             color: #999;
         }
@@ -234,7 +238,7 @@
                     <td th:text="${car.carname}"></td>
                     <td th:text="${car.price}"></td>
                     <td>
-                        <a th:href="@{/email}" class="btn btn-primary btn-dark btn-light"
+                        <a th:href="@{/send-email}" class="btn btn-primary btn-dark btn-light"
                             title="Click to rent this car">Rent</a>
 
                         <a th:href="@{/call}" class="btn btn-primary btn-dark btn-light">Request Callback</a>
